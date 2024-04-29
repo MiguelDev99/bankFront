@@ -1,0 +1,29 @@
+<form [formGroup]="loginForm" class="py-10 px-5 flex flex-col">
+    <h1 class="mb-5 text-center ">Login</h1>
+    <p class="text-red-600">{{loginError}}</p>
+    <div class="mb-6">
+      <label for="exampleInputEmail1" class="form-label">Email:</label>
+      <input formControlName="userEmail" type="email" class="form-control ml-3 px-3 py-1 rounded-lg bg-slate-100" id="exampleInputEmail1" aria-describedby="emailHelp">  
+        <div *ngIf="userEmail.invalid && (userEmail.dirty || userEmail.touched)"
+            class="text-red-600">
+            <div *ngIf="userEmail.errors?.['required']">
+                El Email es requerido.
+            </div>
+            <div *ngIf="userEmail.errors?.['email']">
+                El Email debe tener un formato válido.
+            </div>
+        </div>
+    </div>
+    <div class="mb-3 ">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input formControlName="password" type="password" class="form-control ml-3 rounded-lg px-3 py-1  bg-slate-100" id="exampleInputPassword1">
+        <div *ngIf="password.invalid && (password.dirty || password.touched)"
+            class="text-red-600">
+            <div *ngIf="password.errors?.['required']">
+                El Password es requerido.
+            </div>
+        </div> 
+    </div>
+    <button type="submit" (click)="login()" class="bg-green-400 mt-5 btn px-2 py-1 rounded-lg">Iniciar Sesión</button>
+    <button (click)="navigateToForgotPassword()" class="mt-5">Olvido su contraseña?</button>
+</form>
