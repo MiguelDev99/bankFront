@@ -11,7 +11,10 @@ const routes: Routes = [
   {path:'customer-save', component:CustomerSaveComponent},
   {path:'login',component:LoginComponent},
   {path:'customer-edit/:custId',component:CustomerEditComponent},
-  {path:'forgot-password',component:ForgotPasswordComponent}
+  {path:'forgot-password',component:ForgotPasswordComponent},
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '**', redirectTo: '/login' }
+
 ];
 
 @NgModule({
