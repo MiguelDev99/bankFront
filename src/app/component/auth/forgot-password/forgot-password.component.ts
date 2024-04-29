@@ -2,7 +2,6 @@ import { Component, OnInit } from "@angular/core";
 import { FormBuilder, Validators } from "@angular/forms";
 import { ForgotPasswordService } from "../../../service/auth/forgot-password.service";
 import { ForgotPasswordRequest } from "../../../domain/forgot-password-request";
-import { Router } from "@angular/router";
 
 
 @Component({
@@ -18,18 +17,13 @@ export class ForgotPasswordComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private forgotPasswordService: ForgotPasswordService,
-    private router: Router
+    private forgotPasswordService: ForgotPasswordService
   ) { }
 
   ngOnInit(): void {}
 
   get email() {
     return this.forgotPasswordForm.controls.email;
-  }
-
-  navigateToForgotPassword() {
-    this.router.navigate(['/forgot-password']);
   }
 
   submitRequest() {
